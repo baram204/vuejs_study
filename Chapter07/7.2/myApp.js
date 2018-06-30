@@ -1,10 +1,10 @@
 const myApp = {
-    template: `
+  template: `
     <div>
         <p>{{greetings}}</p>
     </div>
   `,
-    data: {
-        greetings: 'Hello World'
-    }
+  data: {
+    greetings: 'Hello World'
+  }
 }

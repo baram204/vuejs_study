@@ -5,8 +5,9 @@ import Hello from 'components/Hello'
 
 Vue.use(Router)
 
-const Massive = resolve =>
-  require(['../components/Massive.vue'], resolve)
+const Massive = resolve =
+>
+require(['../components/Massive.vue'], resolve)
 
 export default new Router({
   routes: [

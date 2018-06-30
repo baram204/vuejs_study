@@ -8,20 +8,21 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
-export default {
-  name: 'hello',
-  computed: mapState(['currentImg']),
-  created () {
-    this.$store.dispatch('goToLastPanel')
-  },
-  methods: {
-    prev () {
-      this.$store.dispatch('goToPrevPanel')
+  import {mapState} from 'vuex'
+
+  export default {
+    name: 'hello',
+    computed: mapState(['currentImg']),
+    created() {
+      this.$store.dispatch('goToLastPanel')
     },
-    next () {
-      this.$store.dispatch('goToNextPanel')
+    methods: {
+      prev() {
+        this.$store.dispatch('goToPrevPanel')
+      },
+      next() {
+        this.$store.dispatch('goToNextPanel')
+      }
     }
   }
-}
 </script>

@@ -3,19 +3,23 @@
 
 <head>
   <title></title>
+  <meta charset="UTF-8">
   <script src="https://unpkg.com/vue/dist/vue.js"></script>
 </head>
 
 <body>
 <div id="app">
-  <ul>
-    <li v-for="n in 4">Hello!</li>
-  </ul>
+  <p>괭이 객체: {{ 괭이 }}</p>
 </div>
 
 <script>
   new Vue({
-    el: '#app'
+    el: '#app',
+    data: {
+      괭이: {
+        울음소리: '야용'
+      }
+    }
   })
 </script>
 </body>

@@ -10,28 +10,28 @@
 </template>
 
 <script>
-export default {
-  name: 'market',
-  data () {
-    return {
-      amount: 0
-    }
-  },
-  computed: {
-    rate () {
-      return this.$store.state.rate[this.symbol1][this.symbol2]
-    }
-  },
-  props: ['symbol1', 'symbol2'],
-  methods: {
-    buy () {
-      this.$store.state[this.symbol1] += this.amount
-      this.$store.state[this.symbol2] -= this.amount * this.rate
+  export default {
+    name: 'market',
+    data() {
+      return {
+        amount: 0
+      }
     },
-    sell () {
-      this.$store.state[this.symbol1] -= this.amount
-      this.$store.state[this.symbol2] += this.amount * this.rate
+    computed: {
+      rate() {
+        return this.$store.state.rate[this.symbol1][this.symbol2]
+      }
+    },
+    props: ['symbol1', 'symbol2'],
+    methods: {
+      buy() {
+        this.$store.state[this.symbol1] += this.amount
+        this.$store.state[this.symbol2] -= this.amount * this.rate
+      },
+      sell() {
+        this.$store.state[this.symbol1] -= this.amount
+        this.$store.state[this.symbol2] += this.amount * this.rate
+      }
     }
   }
-}
 </script>

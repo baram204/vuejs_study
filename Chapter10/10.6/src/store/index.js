@@ -9,8 +9,8 @@ const store = new Vuex.Store({
     rate: 1000
   },
   getters: {
-    euro: state => state.bitcoin * state.rate
-  }
+    euro: state = > state.bitcoin * state.rate
+}
 })
 
 export default store

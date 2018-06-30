@@ -1,16 +1,16 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for 7.10/test.js</title>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="../prettify.css" />
-    <link rel="stylesheet" href="../base.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style type='text/css'>
-        .coverage-summary .sorter {
-            background-image: url(../sort-arrow-sprite.png);
-        }
-    </style>
+  <title>Code coverage report for 7.10/test.js</title>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="../prettify.css"/>
+  <link rel="stylesheet" href="../base.css"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style type='text/css'>
+    .coverage-summary .sorter {
+      background-image: url(../sort-arrow-sprite.png);
+    }
+  </style>
 </head>
 <body>
 <div class='wrapper'>
@@ -42,7 +42,7 @@
     </div>
   </div>
   <div class='status-line medium'></div>
-<pre><table class="coverage">
+  <pre><table class="coverage">
 <tr><td class="line-count quiet">1
 2
 3
@@ -83,23 +83,23 @@
   let vm
   beforeEach(() =&gt; {
     vm = new Vue(myApp).$mount()
-<span class="cstat-no" title="statement not covered" >    vm.number = 5</span>
+<span class="cstat-no" title="statement not covered">    vm.number = 5</span>
   })
   it('should output Lower... if guess is 6', () =&gt; {
     vm.guess = 6
-<span class="cstat-no" title="statement not covered" >    expect(vm.output).toBe('Lower...')</span>
+<span class="cstat-no" title="statement not covered">    expect(vm.output).toBe('Lower...')</span>
   })
   it('should output Higher... if guess is 4', () =&gt; {
     vm.guess = 4
-<span class="cstat-no" title="statement not covered" >    expect(vm.output).toBe('Higher...')</span>
+<span class="cstat-no" title="statement not covered">    expect(vm.output).toBe('Higher...')</span>
   })
   it('should output That’s right! if guess is 5', () =&gt; {
     vm.guess = 5
-<span class="cstat-no" title="statement not covered" >    expect(vm.output).toBe('That’s right!')</span>
+<span class="cstat-no" title="statement not covered">    expect(vm.output).toBe('That’s right!')</span>
   })
 })</pre></td></tr>
 </table></pre>
-<div class='push'></div><!-- for sticky footer -->
+  <div class='push'></div><!-- for sticky footer -->
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
@@ -108,11 +108,11 @@
 </div>
 <script src="../prettify.js"></script>
 <script>
-window.onload = function () {
-        if (typeof prettyPrint === 'function') {
-            prettyPrint();
-        }
-};
+  window.onload = function () {
+    if (typeof prettyPrint === 'function') {
+      prettyPrint();
+    }
+  };
 </script>
 <script src="../sorter.js"></script>
 </body>

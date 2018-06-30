@@ -4,12 +4,12 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 const heart = {
-  state: { loves: undefined },
+  state: {loves: undefined},
   mutations: {
-    love (state, target) {
+    love(state, target) {
       state.loves = target // state is local
     },
-    unlove (state) {
+    unlove(state) {
       state.loves = undefined
     }
   }
@@ -17,12 +17,14 @@ const heart = {
 
 const leftLobe = {
   namespaced: true,
-  state: { reason: true },
+  state: {reason: true},
   mutations: {
-    toggle (state) { state.reason = !state.reason }
+    toggle(state) {
+      state.reason = !state.reason
+    }
   },
   actions: {
-    beNerd ({ rootState }) {
+    beNerd({rootState}) {
       rootState.heart.loves = 'Math & Physics'
     }
   }
@@ -30,9 +32,11 @@ const leftLobe = {
 
 const rightLobe = {
   namespaced: true,
-  state: { fantasy: true },
+  state: {fantasy: true},
   mutations: {
-    toggle (state) { state.fantasy = !state.fantasy }
+    toggle(state) {
+      state.fantasy = !state.fantasy
+    }
   }
 }
 

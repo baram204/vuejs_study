@@ -5,17 +5,21 @@ import actions from './actions'
 Vue.use(Vuex)
 
 export const mutations = {
-  MARK_ITEM_AS_DONE (state, itemId) {
-    state.todo.filter(item => {
+  MARK_ITEM_AS_DONE(state, itemId) {
+    state.todo.filter(item = > {
       return item.id === itemId
-    }).forEach(item => {
+    }
+  ).
+    forEach(item = > {
       item.done = true
-    })
-    state.archived.filter(item => {
+  })
+    state.archived.filter(item = > {
       return item.id === itemId
-    }).forEach(item => {
+    }
+  ).
+    forEach(item = > {
       item.done = true
-    })
+  })
   }
 }
 
@@ -26,12 +30,12 @@ const store = new Vuex.Store({
         id: 43,
         text: 'Buy iPhone',
         done: false
-      } ],
+      }],
       archived: [{
         id: 2,
         text: 'Buy gramophone',
         done: true
-      } ]
+      }]
     }
   },
   mutations,
