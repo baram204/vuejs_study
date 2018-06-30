@@ -1,6 +1,6 @@
-# vuejs_study
+# my-component
 
-> A Vue.js project
+> A single file component
 
 ## Build Setup
 
