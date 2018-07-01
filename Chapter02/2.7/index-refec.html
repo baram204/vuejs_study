@@ -20,7 +20,7 @@
 <div id="app">
   <textarea
     v-model="memeText"
-    :class="{ warn: longText }"
+    :class="classes"
     :maxlength="limit">
    </textarea>
   {{memeText.length}}
@@ -35,12 +35,9 @@ new Vue({
     limit: 50
   },
   computed: {
-    longText() {
-      if (this.limit - this.memeText.length <= 10) {
-        return true
-      } else {
-        return false
-      }
+    classes() {
+      const longtext = this.limit - this.memeText.length <= 10
+      return { warn : longtext}
     }
   }
 })

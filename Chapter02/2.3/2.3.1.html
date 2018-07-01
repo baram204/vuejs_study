@@ -5,23 +5,19 @@
   <meta name="robots" content="noindex, nofollow">
   <meta name="googlebot" content="noindex, nofollow">
 
-
   <script type="text/javascript" src="//vuejs.org/js/vue.js"></script>
-
-
   <link rel="stylesheet" type="text/css" href="/css/result-light.css">
 
-
-  <script type="text/javascript" src="https://npmcdn.com/vue@next/dist/vue.js"></script>
-
-
+  <!-- todo 요정도는 css 로 해도 되는구나. 기록하면 좋겠네.-->
   <style type="text/css">
     .ascending:after {
       content: "\25B2"
+      /* ▲ */
     }
 
     .descending:after {
       content: "\25BC"
+      /* ▼ */
     }
   </style>
 
@@ -42,15 +38,21 @@
         order: 1
       },
       computed: {
+        // 계산된 복사본의 캐시를 반환한다.
         damsByElectricity() {
-          return this.dams.sort((d1, d2) = >
+          // sort((a,b) => 결과).
+          // 결과가 음수면 뒤에 것이 크므로 a,b 두요소는 뒤에 것이 크게 정렬 - 오름차순
+          // 결과가 양수면 앞에 것이 크므로 a,b 두요소는 앞에 것이 크게 정렬 - 내림차순
+          return this.dams.sort((d1, d2) =>
             (d2.electricity - d1.electricity) * this.order
-        )
-          ;
+            // this.order 는 양방향 데이터바인딩 되어있기 때문에
+            // 변경 시 computed 가 간접 호출되기 된다.
+          );
         }
       },
       methods: {
         sort() {
+          // 현재 정렬의 방향을 반대로 변경한다.
           this.order = this.order * -1
         }
       }
@@ -69,6 +71,8 @@
     <tr>
       <th>Name</th>
       <th>Country</th>
+      <!-- html class 속성에 특정 값을 바인딩( : or v-bind: ) 한다.
+      order 가 1 이면 descending 클래스를, 아니면 ascending 클래스로 변경한다.-->
       <th :class="order === 1 ? 'descending' : 'ascending'"
           @click="sort">Electricity
       </th>

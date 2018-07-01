@@ -6,14 +6,7 @@
   <meta name="googlebot" content="noindex, nofollow">
 
 
-  <script type="text/javascript" src="//vuejs.org/js/vue.js"></script>
-
-
-  <link rel="stylesheet" type="text/css" href="/css/result-light.css">
-
-
-  <script type="text/javascript" src="https://npmcdn.com/vue@next/dist/vue.js"></script>
-
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
 
   <style type="text/css">
 
@@ -42,16 +35,14 @@
       },
       methods: {
         nonPhysics(list) {
-          return list.filter(exp = > exp.field !== 'Physics'
-        )
+          return list.filter(exp => exp.field !== 'Physics')
         },
         lowCost(list) {
-          return list.filter(exp = > exp.cost <= 3
-        )
+          return list.filter(exp => exp.cost <= 3)
         }
       }
     })
-  }//]]>
+  }
 
   </script>
 
@@ -62,6 +53,7 @@
 <div id="exp-exp">
   <h3>List of expensive experiments</h3>
   <ul>
+    <!-- v-for="exp in nonPhysics(lowCost(experiments))" 도 가능하지만 computed 로 뺀다.-->
     <li v-for="exp in filteredExperiments">
       {{exp.name}} ({{exp.cost}}m €)
     </li>

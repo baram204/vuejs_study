@@ -5,72 +5,60 @@
   <meta name="robots" content="noindex, nofollow">
   <meta name="googlebot" content="noindex, nofollow">
 
-
   <script type="text/javascript" src="/js/lib/dummy.js"></script>
-
-
   <link rel="stylesheet" type="text/css" href="/css/result-light.css">
-
-
-  <script type="text/javascript" src="https://npmcdn.com/vue@next/dist/vue.js"></script>
-
-
-  <style type="text/css">
-
-  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
 
   <title>2.7.1 by gurghet</title>
-
-
-  <script type='text/javascript'>//<![CDATA[
-  window.onload = function () {
-    new Vue({
-      el: '#app',
-      data: {
-        legCount: 0
-      },
-      methods: {
-        update(e) {
-          this.tableCount = e.target.value
-        }
-      },
-      computed: {
-        tableCount: {
-          get() {
-            return this.legCount / 4
-          },
-          set(newValue) {
-            this.legCount = newValue * 4
-          }
-        }
-      }
-    })
-  }//]]>
-
-  </script>
-
 
 </head>
 
 <body>
 <div id="app">
-  <label>Legs: <input v-model="legCount" type="range"></label><br>
-  <label>Tops: <input @input="update" :value="tableCount"></label><br>
+  <!-- legCount 는 양방향 데이터 바인딩 -->
+  <label>다리 개수: <input v-model="legCount" type="range"></label><br>
+  <!-- 콜론(:)은 v-bind 의 약어. 즉 tableCount 도 양방향 데이터 바인딩
+   거기다가 input 이벤트 발생 시 마다 update 메소드 호출한다.-->ㄴ
+  <label>상 개수: <input @input="update" :value="tableCount"></label><br>
   <output>
-    We are going to build {{legCount}} legs
-    and assembly {{tableCount}} tables.
+    우리는 {{legCount}} 개의 상다리를 만들고
+    {{tableCount}} 개의 상을 조립한다.
   </output>
 </div>
 
-<script>
-  // tell the embed parent frame the height of the content
-  if (window.parent && window.parent.parent) {
-    window.parent.parent.postMessage(["resultsFrame", {
-      height: document.body.getBoundingClientRect().height,
-      slug: "jfmw4zx1"
-    }], "*")
-  }
+
+<script type='text/javascript'>//<![CDATA[
+window.onload = function () {
+  new Vue({
+    el: '#app',
+    data: {
+      legCount: 0
+    },
+    methods: {
+      update(e) { // 이벤트 타켓 요소의 현재 값을 가져와서 tableCount 에 set 터에 집어넣음
+        this.tableCount = e.target.value
+      }
+    },
+    computed: {
+
+      tableCount: {
+        // legCount 가 의존성이기 때문에 범위 막대를 옮겨서 값을 변경하면
+        // tableCount 의 get() 호출이 되어서 값이 리턴된다.
+        // 리턴된 값은 당연히 데이터바인딩 된 tableCount 변경하므로 화면에 갱신됨
+        get() {
+          return this.legCount / 4
+        },
+        // @input = "update" 에 의해서 set(newValue)가 호출되어서 legCount 변경
+        set(newValue) {
+          this.legCount = newValue * 4
+        }
+      }
+    }
+  })
+}//]]>
+
 </script>
+
 
 </body>
 

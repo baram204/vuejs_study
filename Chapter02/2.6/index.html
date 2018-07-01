@@ -8,7 +8,10 @@
 
 <body>
 <div id="ghost">
+  <!-- v-show 는 렌더링은 되나 속성을 none 을 적용해서 보이지 않게 한다. -->
   <div v-show="isNight">
+  <!-- v-if 는 동적으로 아예 추가하거나 없애버린다. 요소 자체를 찾아도 보이지 않는다. -->
+  <!--<div v-if="isNight">-->
     I'm a ghost! Boo!
   </div>
 </div>

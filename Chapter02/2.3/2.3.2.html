@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="googlebot" content="noindex, nofollow">
+
+  <script type="text/javascript" src="//vuejs.org/js/vue.js"></script>
+
+  <!--http://openexchangerates.github.io/accounting.js/-->
+  <script type="text/javascript" src="./accounting.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="/css/result-light.css">
+
+  <!-- todo 요정도는 css 로 해도 되는구나. 기록하면 좋겠네.-->
+  <style type="text/css">
+    .price {
+      text-align: right
+    }
+  </style>
+
+  <title>2.3.M by gurghet</title>
+
+
+  <script type='text/javascript'>//<![CDATA[
+  window.onload = function () {
+    // won 이라는 필터는 금액을 받아서 형식을 지정한다.
+    Vue.filter('won', money => accounting.formatMoney(money, { symbol: "₩",  format: "%v %s" }));
+    new Vue({
+      el: '#app',
+      data: {
+        inventory: [
+          // 자바스크립트 숫자는 부동소수점이라 정밀한 계산시 값이 날아간다.
+          // 그래서 문자열로 계산을 한다.
+          {name: '테이프', price: '7'},
+          {name: '줄자', price: '0.01'},
+          {name: '도장', price: '1.5'},
+          {name: '아이폰', price: '999'}
+        ],
+        order: 1
+      },
+      computed: {
+
+      },
+      methods: {
+
+
+      }
+    })
+  }//]]>
+
+  </script>
+
+
+</head>
+
+<body>
+<div id="app">
+  <table>
+    <thead>
+    <tr>
+      <th>항목</th>
+      <th>가격</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr v-for="item in inventory">
+      <td>{{item.name}}</td>
+      <td>{{item.price | won }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+</body>
+
+</html>
+

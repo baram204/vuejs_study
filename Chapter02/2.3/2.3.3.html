@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="googlebot" content="noindex, nofollow">
+
+  <script type="text/javascript" src="//vuejs.org/js/vue.js"></script>
+
+  <!--https://momentjs.com/-->
+  <script type="text/javascript" src="./moment-with-locales.js"></script>
+  <link rel="stylesheet" type="text/css" href="/css/result-light.css">
+
+  <!-- todo 요정도는 css 로 해도 되는구나. 기록하면 좋겠네.-->
+  <style type="text/css">
+    .price {
+      text-align: right
+    }
+  </style>
+
+  <title>2.3.M by gurghet</title>
+
+
+  <script type='text/javascript'>//<![CDATA[
+  window.onload = function () {
+    // won 이라는 필터는 금액을 받아서 형식을 지정한다.
+    Vue.filter('date', function(date, locale ) {
+      moment.locale(locale);
+      return moment(date).format('LL');
+    });
+    new Vue({
+      el: '#app',
+      data: {
+        sigi: '1789-07-14 17:00'
+      },
+      computed: {
+
+      },
+      methods: {
+
+
+      }
+    })
+  }//]]>
+
+  </script>
+
+
+</head>
+
+<body>
+
+<div id="app">
+ 싸움이 일어난 시기는 {{ sigi | date('ko') }}
+</div>
+
+</body>
+
+</html>
+

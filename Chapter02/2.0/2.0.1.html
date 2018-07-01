@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+
+
+  <title>2.0.1 by jihoon</title>
+
+</head>
+
+<body>
+<div id="app">
+  <input type="text" v-model="name"> </input>
+  <input type="text" id="surname" value="yi"> </input>
+  <button @click="saveSurname">성 저장하기</button>
+  <output>{{ computedFullName }}</output>
+</div>
+<script type='text/javascript'>
+  new Vue({
+    el: '#app',
+    data: {
+      name: '지훈' // input 에서 수정 시 실시간 양방향 갱신된다.
+    },
+    computed: {
+      // 데이터 바인딩된 name 속성이 갱신될 때만 다시 계산죔 속성의 개신이 일어난다.
+      // 아래 메서드로 surname 을 아무리 변경해도 데이터 바인딩이 안 되어있으므로
+      // 계산을 하지 않는다.
+      computedFullName () {
+        return this.name + '' + this.surname
+      }
+    },
+    methods: {
+      saveSurname() {
+        // surname 은 data 안에 있지 않으므로 실시간 양방향 데이터 바인딩이 안 된다.
+        this.surname = this.$el.querySelector('#surname').value
+      }
+    }
+  })
+
+</script>
+
+
+</body>
+
+</html>
+
